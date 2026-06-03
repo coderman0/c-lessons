@@ -1,0 +1,28 @@
+using System;
+
+class Program
+{
+  
+    static void Main()
+{
+  
+  int age = 17;
+  if (age >= 18)
+  {
+    Console.WriteLine("Ты совершеннолетний.");   
+  }
+
+else if (age >= 12 && age < 18)
+    {
+      Console.WriteLine("Ты подросток.");
+    }
+
+  else{
+        Console.WriteLine("Ты несовершеннолетний.");
+      }
+}
+
+}
+
+
+///26:00 на уроке
