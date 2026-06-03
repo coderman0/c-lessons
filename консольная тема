@@ -1,0 +1,39 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        
+
+        Console.WriteLine("текст");
+
+        Console.Write("  Введите текст:   ");
+
+
+        string text = Console.ReadLine();
+
+        Console.WriteLine("это текст"    + text);
+
+        Console.ReadKey(); /// короче нажимаешь на любую клавишу и программа закрывается
+
+        Console.Clear(); /// очищает консоль
+ ///////////////////////////////////////////////
+
+
+        Console.SetCursorPosition(10, 10); /// устанавливает курсор в определенную позицию (10 - по горизонтали, 10 - по вертикали)
+
+           
+        Console.BackgroundColor = ConsoleColor.White; /// меняет цвет фона
+        Console.ForegroundColor = ConsoleColor.Green; /// меняет цвет текста
+
+          Console.WriteLine("Текст зеленого цвета");
+
+          Console.ResetColor(); /// сбрасывает цвет на стандартный
+
+  
+        ///конец 21:00 
+
+
+    }
+}
