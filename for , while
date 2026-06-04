@@ -1,0 +1,46 @@
+using System;
+
+class Program
+{
+  static void Main()
+  {
+    
+    // повторение цикла 10 раз  //int i ровно 0, пока i меньше 10, увеличиваем i на единицу
+    for (int i = 0; i < 10; i++)
+    {
+      Console.WriteLine(i);
+    }
+
+   Console.Clear(); // очистка консоли
+
+    ///теперь while
+    int b = 0;
+
+    
+    // тоже самое, только с помощью while. 
+    while (b < 10)
+    {
+      
+      Console.WriteLine(b);
+      b++;
+
+      Console.Clear();  //очистка консоли
+    }
+
+
+
+// с началом цикла do, который выполняется хотя бы один раз, а потом проверяет условие то есть while
+     int d = 0;
+    do{
+
+     
+      Console.WriteLine(d);
+      d++;
+
+    }while (d < 10);
+
+
+  }
+}
+
+//конец 31:00
