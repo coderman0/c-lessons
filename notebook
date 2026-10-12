@@ -1,0 +1,112 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+class Program { static void Main()
+    {
+
+        string filePath = "records.txt";
+        
+
+        var records = new List<string>();
+
+
+        if (!File.Exists(filePath))
+        {
+            File.Create(filePath).Close();
+        }
+        else
+        {
+            records.AddRange(File.ReadAllLines(filePath));
+        }
+
+        while (true)
+        {
+            Console.WriteLine("Notebook");
+
+            Console.WriteLine("1. Add record");
+
+            Console.WriteLine("2. Show records");
+
+            Console.WriteLine("3. Delete record");
+
+            Console.WriteLine("4. Exit");
+
+            Console.Write("Choose an action: ");
+
+
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+
+
+                    Console.WriteLine("Please enter the record details:");
+                    string recordDetails = Console.ReadLine();
+                    records.Add(recordDetails);
+                    File.WriteAllLines(filePath, records);
+                    Console.WriteLine("Record added successfully.");
+                    break;
+
+                case "2":
+                    if (records.Count > 0)
+                    {
+                        Console.WriteLine("Showing records:");
+                        for (int i = 0; i < records.Count; i++)
+                        {
+                            Console.WriteLine((i + 1) + ". " + records[i]);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No records found.");
+                    }
+                    break;
+                   
+
+                case "3":
+                    
+
+                    if (records.Count > 0)
+                    {
+
+                       
+
+                        for (int i = 0; i < records.Count; i++)
+                        {
+                            Console.WriteLine((i + 1) + ". " + records[i]);
+                        }
+                        Console.WriteLine("Please enter the record number to delete (1 to " + records.Count + "):");
+                        if (int.TryParse(Console.ReadLine(), out int recordNumber) && recordNumber >= 1 && recordNumber <= records.Count)
+                        {
+                            records.RemoveAt(recordNumber - 1);
+                            File.WriteAllLines(filePath, records);
+                            Console.WriteLine("Record deleted successfully.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid record number.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No records found.");
+                    }
+                    break;
+                case "4":
+                    Console.WriteLine("Exiting program...");
+                    return;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again .");
+                    break;
+            }
+
+
+        }
+
+
+    }
+
+       
+}
